@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!--Here is the base HTML page for my program-->
+
 <html>
     <head>
         <title>Students List</title>
@@ -7,12 +10,14 @@
     </head>
     <body>
         <h2>Student form</h2>
-        <form action="ServletExample" method="POST">
+        <form action="ServletExample" method="POST">  <!--When activated, this 
+        code here call the servlet "ServletExample" using the POST method-->
             Enter your first name: <input type="text" name="firstN"><br/>
             Enter your last name: <input type="text" name="lastN"><br/>
             <button onclick="submit"> Submit Name </button>
         </form>
-        <form action="ServletExample" method="GET">
+        <form action="ServletExample" method="GET">  <!--When activated, this 
+        code here call the servlet "ServletExample" using the GET method-->
             <button onclick="submit"> Get Students List </button>
         </form>
     </body>

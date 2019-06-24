@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author Andre Matheus
+ * // This is my servlet exaple, a litle Java program that works in the server
+ * // to receive requests, process them and return responses. In this case my
+ * // Servlet manages an online web list.
  */
 public class ServletExample extends HttpServlet {
     
@@ -59,8 +62,8 @@ public class ServletExample extends HttpServlet {
     }
 
     /**
-     * As a idempotent method the GET method just asks for the students list
-     * without changing it.
+     * // As a idempotent method the GET method just asks for the students list
+     * // without changing it.
      *
      * @param request servlet request
      * @param response servlet response
@@ -68,10 +71,13 @@ public class ServletExample extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) //idempotent
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) { 
+            // The code here prints the response HTML page line by line, 
+            // changing the visual elements as nescessary to display the output 
+            // in the web page.
             out.println("<!DOCTYPE html>" );
             out.println("<html>");
             out.println("<head>");
@@ -89,19 +95,19 @@ public class ServletExample extends HttpServlet {
             out.println("<form action=\"ServletExample\" method=\"GET\">");
             out.println("<button onclick=\"submit\"> Get Students List </button>");
             out.println("</form>");
-            out.println("<h3>Student list:</h3>");
-            for (Student stu : students){
-                out.println(stu.getfName()+" "+ stu.getlName());
-                out.println("<br/>");
-            }
+            out.println("<h3>Student list:</h3>");              // This is the
+            for (Student stu : students){                       // part of the
+                out.println(stu.getfName()+" "+ stu.getlName());// code wich
+                out.println("<br/>");                           // displays the
+            }                                                   // list.
             out.println("</body>");
             out.println("</html>");
         }
     }
 
     /**
-     * The POST method here gets the users imput (a student name) and processes 
-     * it adding the names to a student list.
+     * // The POST method here gets the users imput (a student name) and  
+     * // processes it adding the names to a student list.
      *
      * @param request servlet request
      * @param response servlet response
@@ -114,7 +120,7 @@ public class ServletExample extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String fName = request.getParameter("firstN"); // user imput
-            String lName = request.getParameter("lastN"); // user imput
+            String lName = request.getParameter("lastN");  // user imput
             out.println("<!DOCTYPE html>" );
             out.println("<html>");
             out.println("<head>");
@@ -131,7 +137,7 @@ public class ServletExample extends HttpServlet {
             // verify if any name is empty (ignoring whitespaces).
             if ("".equals(fName.replaceAll("\\s","")) ||
                     "".equals(lName.replaceAll("\\s",""))){
-                out.println(" Missing Name!");
+                out.println(" Missing Name!"); //print out an allert message
             } else {
                 // if the names are not empty a student is created and added to 
                 // the list.
@@ -150,7 +156,6 @@ public class ServletExample extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
-     *
      * @return a String containing servlet description
      */
     @Override
