@@ -6,7 +6,7 @@
     <class name="pojos.Students" table="students" catalog="database_students" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="native" /><!-- class="identity" -->
+            <generator class="native" />
         </id>
         <property name="firstName" type="string">
             <column name="first_name" length="50" not-null="true" />
