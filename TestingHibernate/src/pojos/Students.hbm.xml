@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/06/2019 10:25:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Students" table="students" catalog="database_students" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" /><!-- class="identity" -->
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="50" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="50" />
+        </property>
+        <property name="grade" type="string">
+            <column name="grade" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>
